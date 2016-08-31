@@ -82,7 +82,6 @@ public class NumberPasswordView extends LinearLayout {
                 }
 
                 if (passwordStack.size() == NUMBER_COUNT) {
-                    Toast.makeText(context, getPassword(), Toast.LENGTH_SHORT).show();
                     // 输入满4位密码，回调
                     if(onInputNumberCodeCallback != null) {
                         onInputNumberCodeCallback.onResult(getPassword());
