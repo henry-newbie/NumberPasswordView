@@ -124,6 +124,7 @@ public class NumberPasswordView extends LinearLayout {
      */
     public void clearNumber() {
         nvPassword.setEnteredCount(0);
+        passwordStack.clear();
     }
 
     public interface OnInputNumberCodeCallback {
