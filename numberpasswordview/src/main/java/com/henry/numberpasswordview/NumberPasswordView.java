@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Stack;
@@ -26,6 +27,8 @@ public class NumberPasswordView extends LinearLayout {
     private GridView gvKeyboard;
 
     private NumberView nvPassword;
+
+    private TextView tvTip;
 
     private OnInputNumberCodeCallback onInputNumberCodeCallback;
 
@@ -49,6 +52,7 @@ public class NumberPasswordView extends LinearLayout {
         View view = inflate(context, R.layout.view_number_password, this);
         gvKeyboard = (GridView) view.findViewById(R.id.gv_keyboard);
         nvPassword = (NumberView) view.findViewById(R.id.nv_password);
+        tvTip = (TextView) view.findViewById(R.id.tv_tip);
 
         final NumberKeyboardAdapter adapter = new NumberKeyboardAdapter(context);
         gvKeyboard.setAdapter(adapter);
@@ -105,6 +109,21 @@ public class NumberPasswordView extends LinearLayout {
      */
     public void setOnInputNumberCodeCallback(OnInputNumberCodeCallback onInputNumberCodeCallback) {
         this.onInputNumberCodeCallback = onInputNumberCodeCallback;
+    }
+
+    /**
+     * 设置文字tip
+     * @param tip
+     */
+    public void setTip(String tip) {
+        tvTip.setText(tip);
+    }
+
+    /**
+     * 清空输入框
+     */
+    public void clearNumber() {
+        nvPassword.setEnteredCount(0);
     }
 
     public interface OnInputNumberCodeCallback {
